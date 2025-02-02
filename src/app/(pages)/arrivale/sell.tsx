@@ -1,4 +1,5 @@
 "use client"
+import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import {
   Carousel,
@@ -14,7 +15,7 @@ import Image from "next/image"
 import Link from "next/link"
 import React, { useEffect, useState } from 'react'
 import { FaStar } from "react-icons/fa";
-import { Button } from "./ui/button"
+
 // Star icons array
 const star = [
   <FaStar key={1} />,
@@ -35,7 +36,7 @@ interface Iproducts {
 }
 
 
- function Product() {
+ function SELL() {
   const [products, setProducts] = useState<Iproducts[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -144,4 +145,4 @@ interface Iproducts {
   ) 
 }
 
-export default Product
+export default SELL

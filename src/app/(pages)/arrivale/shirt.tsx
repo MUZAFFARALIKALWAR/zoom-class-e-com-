@@ -1,12 +1,5 @@
 "use client"
-import { Card, CardContent } from "@/components/ui/card"
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel"
+import { Button } from "@/components/ui/button"
  
 import { client } from '@/sanity/lib/client'
 import { urlFor } from "@/sanity/lib/image"
@@ -14,7 +7,7 @@ import Image from "next/image"
 import Link from "next/link"
 import React, { useEffect, useState } from 'react'
 import { FaStar } from "react-icons/fa";
-import { Button } from "./ui/button"
+
 // Star icons array
 const star = [
   <FaStar key={1} />,
@@ -35,7 +28,7 @@ interface Iproducts {
 }
 
 
- function Product() {
+ function Shirts() {
   const [products, setProducts] = useState<Iproducts[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -47,7 +40,7 @@ interface Iproducts {
         setLoading(true);
         setError(null);
         const fetchedProducts: Iproducts[] = await client.fetch(
-          `*[_type == 'product' && category == 'tshirt']{
+         `*[_type == 'product']{
             "imageUrl": image.asset->url,
             category,
             discountPercent,
@@ -90,7 +83,7 @@ interface Iproducts {
 
   return (
     <div className="w-full mt-20 md:mt-36 h-full  max-w-screen-xl mx-auto">
-    <h1 className="text-3xl md:text-4xl font-bold text-center">NEW ARRIVALS</h1>
+    <h1 className="text-3xl md:text-4xl font-bold text-center">TOP SELLING</h1>
     <div className="relative mt-10 overflow-x-auto flex space-x-5 px-8">
       {products.map((data) => (
         <div key={data._id} className="flex-shrink-0">
@@ -144,4 +137,4 @@ interface Iproducts {
   ) 
 }
 
-export default Product
+export default Shirts

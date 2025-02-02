@@ -1,14 +1,17 @@
 import FontShowcase from "@/components/Fonts";
-import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import SELL from "./(pages)/arrivale/sell";
+import Shirts from "./(pages)/arrivale/shirt";
 
 
 export default function Home() {
   return (
          <div>
-          <Header/>
+        
           <Hero/>
           <FontShowcase/>
+          <SELL/>
+          <Shirts/>
          </div>
   );
 }
